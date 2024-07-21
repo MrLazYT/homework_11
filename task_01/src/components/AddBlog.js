@@ -77,7 +77,7 @@ export default function AddBlog()
 
                 <div className="input-container">
                     <label>Published At:</label>
-                    <input value={blog.published_at} onChange={onPublishedAtChangeHandler}/>
+                    <input type="date" value={blog.published_at} onChange={onPublishedAtChangeHandler}/>
                 </div>
 
                 <div className="input-container">

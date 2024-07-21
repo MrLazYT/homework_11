@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom";
+import { ACTION_TYPES } from "./store/boilerPlate";
 
 export default function Blog()
 {
     const { id } = useParams();
     const blogs = useSelector((state) => state);
+    const dispatch = useDispatch();
     const blog = blogs.find(blog => blog.id === +id);
     const navigate = useNavigate();
 
@@ -13,6 +15,11 @@ export default function Blog()
     }
 
     const deleteOnClick = () => {
+        dispatch({
+            type: ACTION_TYPES.DELETE,
+            payload: +id
+        });
+
         navigate('/');
     }
 

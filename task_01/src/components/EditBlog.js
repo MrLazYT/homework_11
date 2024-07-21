@@ -1,16 +1,24 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { ACTION_TYPES } from "./store/boilerPlate"
 
 export default function EditBlog()
 {
     const { id } = useParams();
     const blogs = useSelector((state) => state);
+    const dispatch = useDispatch();
     const [blog, setBlog] = useState(blogs.find(blog => blog.id === +id));
     const navigate = useNavigate();
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
+
+        dispatch({
+            type: ACTION_TYPES.EDIT,
+            payload: blog
+        });
+
         navigate(`/${id}`);
     }
 
@@ -71,7 +79,7 @@ export default function EditBlog()
 
                 <div className="input-container">
                     <label>Published At:</label>
-                    <input value={blog.published_at} onChange={onPublishedAtChangeHandler}/>
+                    <input type="date" value={blog.published_at} onChange={onPublishedAtChangeHandler}/>
                 </div>
 
                 <div className="input-container">

@@ -8,7 +8,7 @@ html {
 
 div.blogs-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 33%);
   width: 70%;
   margin: auto;
 }
@@ -80,18 +80,22 @@ button {
   padding: 10px;
   border: none;
   border-radius: 7px;
-  background-color: #202c19;
+  background-color: #282c25;
+  border: 2px solid #30352c;
 }
 
 button:hover {
-  background-color: #293a1f
+  background-color: #30352c;
+  border: 2px solid #393f34;
 }
 
 button:active {
-  background-color: #1b2515;
+  background-color: #1b1e19;
+  border: 2px solid #1f221d;
 }
 
 button.add-blog {
+  min-height: 300px;
   margin: 10px;
   padding: 10px;
   font-size: 20px;
