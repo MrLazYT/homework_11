@@ -12,12 +12,17 @@ export default function Blog()
         navigate(`/${id}/edit`);
     }
 
+    const deleteOnClick = () => {
+        navigate('/');
+    }
+
     return (
         <div className="blog-container">
             <h1>{blog.title}</h1>
 
             <div className="button-container">
                 <button onClick={editOnClick}>Edit blog</button>
+                <button onClick={deleteOnClick}>Delete blog</button>
             </div>
             
             <div className="publishing-info">
@@ -25,7 +30,7 @@ export default function Blog()
                 <p>Published at: {blog.published_at}</p>
             </div>
 
-            <p>{blog.content}</p>
+            <p className="blog-content">{blog.content}</p>
             <p className="blog-topic">{blog.topic}</p>
         </div>
     )

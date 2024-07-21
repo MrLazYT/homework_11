@@ -84,6 +84,8 @@ const blogs = [
     },
 ];
 
+let next_id = 11;
+
 const reducer = (state = blogs, action) => {
     switch (action.type)
     {
@@ -91,7 +93,10 @@ const reducer = (state = blogs, action) => {
         {
             return [
                 ...state,
-                action.payload
+                {
+                    ...action.payload,
+                    id: next_id++
+                }
             ]
         }
         case ACTION_TYPES.EDIT:

@@ -1,17 +1,23 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { ACTION_TYPES } from "./store/boilerPlate";
 
-export default function EditBlog()
+export default function AddBlog()
 {
-    const { id } = useParams();
-    const blogs = useSelector((state) => state);
-    const [blog, setBlog] = useState(blogs.find(blog => blog.id === +id));
+    const [blog, setBlog] = useState({});
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        navigate(`/${id}`);
+        
+        dispatch({
+            type: ACTION_TYPES.ADD,
+            payload: blog
+        });
+
+        navigate(`/`);
     }
 
     const onTitleChangeHandler = (e) => {
@@ -51,7 +57,7 @@ export default function EditBlog()
 
     return (
         <div className="container">
-            <h1>Edit Blog</h1>
+            <h1>Add Blog</h1>
 
             <form onSubmit={onSubmitHandler}>
                 <div className="input-container">

@@ -8,21 +8,31 @@ html {
 
 div.blogs-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 70%;
   margin: auto;
 }
 
 div.blog-block {
   display: flex;
+  min-height: 300px;
   flex-direction: column;
   justify-content: space-between;
   margin: 10px;
   padding: 10px;
   background-color: #1b1e19;
-  border: 2px solid #1f221d;
+  border: 3px solid #1f221d;
   border-radius: 20px;
   cursor: pointer;
+}
+
+div.container {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  background-color: #1b1e19;
+  border: 3px solid #1f221d;
+  border-radius: 20px;
 }
 
 div.blog-container {
@@ -43,6 +53,28 @@ label {
   display: block;
 }
 
+input {
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #232720;
+  box-sizing: border-box;
+  border: 3px solid #292e25;
+  border-radius: 10px;
+}
+
+textarea {
+  min-width: 400px;
+  min-height: 200px;
+  max-width: 400px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #232720;
+  box-sizing: border-box;
+  border: 3px solid #292e25;
+  border-radius: 10px;
+}
+
 button {
   margin: 10px;
   padding: 10px;
@@ -57,6 +89,27 @@ button:hover {
 
 button:active {
   background-color: #1b2515;
+}
+
+button.add-blog {
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #282c25;
+  border: 3px solid #30352c;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button.add-blog:hover {
+  background-color: #30352c;
+  border: 3px solid #393f34;
+}
+
+button.add-blog:active {
+  background-color: #1b1e19;
+  border: 3px solid #1f221d;
 }
 
 p.blog-content {
